@@ -3,9 +3,12 @@ import { SCHEMA_OPTIONS, ObjectId } from "../db/DbUtils.js";
 
 export const AlbumSchema = new Schema({
 
-  name: { type: String, minlength: 1, maxlength: 15, required: true },
+  title: { type: String, minlength: 1, maxlength: 15, required: true },
   coverImg: { type: String, minlength: 1, maxlength: 500, required: true },
-  creatorId: { type: ObjectId, required: true, ref: 'Account' }
+  creatorId: { type: ObjectId, required: true, ref: 'Account' },
+  category: { type: String, enum: ['misc', 'animals', 'games', 'books'] },
+  archived: { type: Boolean, default: false }
+
 }, SCHEMA_OPTIONS)
 
 AlbumSchema.virtual('creator', {
