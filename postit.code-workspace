@@ -1,0 +1,60 @@
+
+{
+  "folders": [
+    {
+      "path": "postit.client",
+      "name": "client"
+    },
+    {
+      "path": "postit",
+      "name": "server"
+    }
+  ],
+  "settings": {
+    "editor.suggestSelection": "first",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "javascript.referencesCodeLens.enabled": true,
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true,
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "files.exclude": {
+      "**/.nyc_*": true,
+      "**/coverage": true,
+      "**/node_modules": true
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.codeActionsOnSave.mode": "all",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#6cded5",
+      "activityBar.background": "#6cded5",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#cb49d6",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "commandCenter.border": "#15202b99",
+      "sash.hoverBorder": "#6cded5",
+      "statusBar.background": "#42d5c9",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#29bbaf",
+      "statusBarItem.remoteBackground": "#42d5c9",
+      "statusBarItem.remoteForeground": "#15202b",
+      "titleBar.activeBackground": "#42d5c9",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#42d5c999",
+      "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#42d5c9"
+  }
+}
