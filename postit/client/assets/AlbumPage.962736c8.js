@@ -1,0 +1,1 @@
+import{_ as e,c as t,o}from"./index.6a1c72d2.js";const s={setup(){return{}}},a={class:"album-page"};function c(r,n,p,_,l,u){return o(),t("div",a," hello from the album page ")}const f=e(s,[["render",c]]);export{f as default};
