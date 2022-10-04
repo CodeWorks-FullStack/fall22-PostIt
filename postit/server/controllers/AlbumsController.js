@@ -1,5 +1,7 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
+import { albumCollaboratorsService } from "../services/AlbumCollaboratorsService.js";
 import { albumsService } from "../services/AlbumsService.js";
+import { picturesService } from "../services/PicturesService.js";
 import BaseController from "../utils/BaseController.js";
 
 export class AlbumsController extends BaseController {
@@ -9,6 +11,8 @@ export class AlbumsController extends BaseController {
     this.router
       .get('', this.getAllAlbums)
       .get('/:id', this.getAlbumById)
+      .get('/:id/pictures', this.getPicturesByAlbumId)
+      .get('/:id/collaborators', this.getCollaboratorsByAlbumId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createAlbum)
       .delete('/:id', this.deleteAlbum)
@@ -33,6 +37,24 @@ export class AlbumsController extends BaseController {
     }
   }
 
+  async getPicturesByAlbumId(req, res, next) {
+    try {
+      const pictures = await picturesService.getPicturesByAlbumId(req.params.id)
+      res.send(pictures)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getCollaboratorsByAlbumId(req, res, next) {
+    try {
+      const collaborators = await albumCollaboratorsService.getCollaboratorsByAlbumId(req.params.id)
+      res.send(collaborators)
+    } catch (error) {
+      next(error)
+    }
+  }
+
   async createAlbum(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id // FORCES THE USER TO BE THEMSELVES
@@ -46,7 +68,7 @@ export class AlbumsController extends BaseController {
 
   async deleteAlbum(req, res, next) {
     try {
-      const album = await albumsService.deleteAlbum(req.params.id, req.userInfo)
+      const album = await albumsService.archiveAlbum(req.params.id, req.userInfo)
       res.send(album)
     } catch (error) {
       next(error)

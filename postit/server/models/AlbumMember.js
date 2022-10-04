@@ -8,6 +8,10 @@ export const AlbumMemberSchema = new Schema({
 
 }, SCHEMA_OPTIONS)
 
+
+// creates a unique constraint across multiple fields
+AlbumMemberSchema.index({ accountId: 1, albumId: 1 }, { unique: true })
+
 AlbumMemberSchema.virtual('album', {
   localField: 'albumId',
   foreignField: '_id',
@@ -15,7 +19,7 @@ AlbumMemberSchema.virtual('album', {
   ref: 'Album'
 })
 
-AlbumMemberSchema.virtual('account', {
+AlbumMemberSchema.virtual('profile', {
   localField: 'accountId',
   foreignField: '_id',
   justOne: true,
