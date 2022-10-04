@@ -5,8 +5,19 @@ import { api } from "./AxiosService.js"
 
 class AlbumsService {
 
-  async getAlbums() {
-    const res = await api.get('/api/albums')
+  async getAlbums(type = '') {
+    let res
+    if (type) {
+      res = await api.get('/api/albums', {
+        params: {
+          category: type
+        }
+      })
+    } else {
+      res = await api.get('/api/albums')
+    }
+
+
     AppState.albums = res.data.map(eh => new Album(eh))
   }
 

@@ -11,6 +11,11 @@ class AccountService {
       logger.error('HAVE YOU STARTED YOUR SERVER YET???', err)
     }
   }
+
+  async getMyCollabs(){
+    const res = await api.get('account/collaborators')
+    AppState.myCollaborations = res.data
+  }
 }
 
 export const accountService = new AccountService()

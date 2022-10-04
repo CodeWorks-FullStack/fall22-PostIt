@@ -12,5 +12,7 @@ export const AppState = reactive({
   activeAlbum: null,
 
   pictures: [],
-  collaborators: []
+  collaborators: [],
+
+  myCollaborations: []
 })
