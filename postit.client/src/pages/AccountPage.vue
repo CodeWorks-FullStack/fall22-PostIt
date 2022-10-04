@@ -3,9 +3,7 @@
     <h1>Welcome {{ account.name }}</h1>
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
-
     <div>
-
       <div class="d-flex flex-wrap gap-5 p-5 align-items-center justify-content-center">
         <AlbumCard v-for="c in myCollaborations" :key="c.id" :album="c.album" />
       </div>
