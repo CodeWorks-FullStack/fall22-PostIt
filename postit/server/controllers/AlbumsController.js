@@ -21,7 +21,7 @@ export class AlbumsController extends BaseController {
 
   async getAllAlbums(req, res, next) {
     try {
-      const albums = await albumsService.getAllAlbums()
+      const albums = await albumsService.getAllAlbums(req.query)
       res.send(albums)
     } catch (error) {
       next(error)

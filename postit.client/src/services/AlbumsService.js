@@ -37,6 +37,15 @@ class AlbumsService {
     router.push({ name: 'Home' })
   }
 
+  async getPictures(albumId) {
+    const res = await api.get(`/api/albums/${albumId}/pictures`)
+    AppState.pictures = res.data
+  }
+
+  async getCollaborators(albumId) {
+    const res = await api.get(`/api/albums/${albumId}/collaborators`)
+    AppState.collaborators = res.data
+  }
 
 
 }
