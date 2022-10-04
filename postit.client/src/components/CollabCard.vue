@@ -1,6 +1,6 @@
 <template>
   <div class="collab-card">
-    <img :src="collab.profile.picture" :alt="collab.profile.name" :title="collab.profile.name">
+    <img :src="collab.profile.picture" :alt="collab.profile.name" :title="collab.profile.name" height="65">
   </div>
 </template>
 

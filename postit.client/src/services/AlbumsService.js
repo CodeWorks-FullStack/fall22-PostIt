@@ -48,6 +48,19 @@ class AlbumsService {
   }
 
 
+  async addCollaborator(albumData) {
+    const res = await api.post('api/collaborators', albumData)
+    const collaborator = res.data
+
+    AppState.collaborators.push(collaborator)
+    // AppState.collaborators = [...AppState.collaborators, collaborator]
+  }
+
+  async removeCollaborator(collaboratorId) {
+    await api.delete('api/collaborators/' + collaboratorId)
+    AppState.collaborators = AppState.collaborators.filter(c => c.id != collaboratorId)
+  }
+
 }
 
 export const albumsService = new AlbumsService()
