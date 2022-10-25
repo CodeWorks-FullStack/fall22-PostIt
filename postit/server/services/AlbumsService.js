@@ -36,7 +36,7 @@ class AlbumsService {
     const albums = await dbContext.Albums.find({
       archived: false,
       ...query,
-    }).populate('creator', 'name picture')
+    }).populate('creator', 'name picture').populate('albumMemberCount')
     return albums
   }
 

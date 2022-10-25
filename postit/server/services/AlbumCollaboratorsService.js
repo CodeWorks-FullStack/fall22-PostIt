@@ -4,7 +4,14 @@ import { albumsService } from "./AlbumsService.js"
 
 class AlbumCollaboratorsService {
   async getCollabsByAccountId(accountId) {
-    const collaborators = await dbContext.AlbumMembers.find({ accountId }).populate('album', 'title coverImg')
+    const collaborators = await dbContext.AlbumMembers.find({ accountId }).populate({
+      // NOTE Deep populate
+      path: 'album',
+      select: 'title coverImg',
+      populate: [{
+        path: 'albumMemberCount'
+      }]
+    })
     return collaborators
   }
 

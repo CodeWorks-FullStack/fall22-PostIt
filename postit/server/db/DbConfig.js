@@ -1,6 +1,9 @@
 import mongoose from 'mongoose'
 import { logger } from '../utils/Logger'
 
+mongoose.set('strictPopulate', false)
+
+
 mongoose.connection.on('error', err => {
   logger.error('[DATABASE ERROR]:', err)
 })

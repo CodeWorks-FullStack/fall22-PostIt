@@ -5,23 +5,17 @@
         <img alt="logo" src="../assets/img/logo.png" />
       </div>
     </router-link>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
+        <li v-if="account.id">
+          <button data-bs-toggle="modal" data-bs-target="#album-modal" class="btn btn-success text-light">
+            <i class="mdi mdi-plus-box"></i>
+            new album
+          </button>
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
@@ -31,10 +25,14 @@
 </template>
 
 <script>
+import { computed } from '@vue/reactivity';
+import { AppState } from '../AppState.js';
 import Login from './Login.vue'
 export default {
   setup() {
-    return {}
+    return {
+      account: computed(() => AppState.account)
+    }
   },
   components: { Login }
 }

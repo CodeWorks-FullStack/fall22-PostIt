@@ -25,4 +25,3 @@ AlbumMemberSchema.virtual('profile', {
   justOne: true,
   ref: 'Account'
 })
-

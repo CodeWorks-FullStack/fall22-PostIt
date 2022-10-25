@@ -3,8 +3,7 @@
     <div class="row">
       <div class="col-8 my-3 m-auto">
         <div class="bg-info p-3 rounded ">
-          <input type="text" class="form-control" placeholder="Search...."
-            v-model="editable">
+          <input type="text" class="form-control" placeholder="Search...." v-model="editable">
         </div>
         <div class="d-flex justify-content-around my-3">
           <button @click="getAlbumsByType('')" class="btn btn-outline-warning">All</button>
@@ -33,7 +32,6 @@ export default {
   setup() {
 
     const editable = ref('')
-
     async function getAlbums() {
       try {
         await albumsService.getAlbums();
@@ -50,7 +48,7 @@ export default {
     return {
       editable,
       albums: computed(() => AppState.albums.filter(a => a.title.toUpperCase().includes(editable.value.toUpperCase()))),
-      async getAlbumsByType(type){
+      async getAlbumsByType(type) {
         try {
           await albumsService.getAlbums(type)
         } catch (error) {

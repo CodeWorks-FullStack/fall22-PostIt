@@ -6,7 +6,7 @@
     <div class="rounded-bottom card-body text-center" :class="getRandomBg()">
       <h4 class="clip-text">{{album.title}}</h4>
       <div class="my-2 d-flex gap-2 align-items-center justify-content-center">
-        <span>32</span>
+        <span>{{album.albumMemberCount}}</span>
         <i class="mdi mdi-heart"></i>
       </div>
     </div>
